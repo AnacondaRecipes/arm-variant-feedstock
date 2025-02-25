@@ -5,3 +5,4 @@ channels: [cuda12_def]
 build_parameters:
   - "--suppress-variables"
   - "--error-overlinking"
+aggregate_check: false
