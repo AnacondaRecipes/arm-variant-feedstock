@@ -2,4 +2,9 @@ arm_variant_type_default:
   - sbsa
 arm_variant_type:
   - sbsa
-  - tegra
+  # Tegra variant requires GLIBC 2.29 or higher, but our build environment uses GLIBC 2.28
+  # CUDA binaries built for Tegra (like nvcc) are incompatible with GLIBC 2.28
+  # This creates a dependency conflict that prevents successful builds
+  # See NVIDIA's system requirements: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#system-requirements
+  # TODO: Re-enable tegra variant once GLIBC 2.29+ is available in our build environment
+  #- tegra
